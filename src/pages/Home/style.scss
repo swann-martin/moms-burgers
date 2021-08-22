@@ -1,0 +1,9 @@
+@use 'src/styles/vars.scss';
+
+.home {
+  width: 100%;
+  min-height: 80vh;
+  background-color: vars.$white;
+  color: vars.$color-3;
+  text-align: center;
+}
