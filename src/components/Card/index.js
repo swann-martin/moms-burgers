@@ -1,24 +1,26 @@
 import React from 'react';
+import './style.scss';
 
-const Card = () => {
+const Card = ({ product, addToCart }) => {
+  const { ingredients, image, title } = product;
   return (
     <div className="card">
-      <img
-        src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=902&q=80"
-        alt="burger-img"
-        className="card-picture"
-      />
-      <h2 className="card-title">title</h2>
-      <ul className="card-list">
-        <li className="card-list-ingredient">ingredient</li>
-        <li className="card-list-ingredient">ingredient</li>
-        <li className="card-list-ingredient">ingredient</li>
-        <li className="card-list-ingredient">ingredient</li>
-      </ul>
-      <p className="description">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis,
-        mollitia.
-      </p>
+      <div className="card-left">
+        <img src={image} alt={title} className="card-picture" />
+      </div>
+      <div className="card-right">
+        <h2 className="card-title">{title}</h2>
+        <ul className="card-list">
+          {ingredients.map((ingredient, id) => (
+            <li key={(ingredient, id)} className="card-list-ingredient">
+              {ingredient}
+            </li>
+          ))}
+        </ul>
+        <div className="card-btn" onClick={() => addToCart(product)}>
+          Ajouter au panier
+        </div>
+      </div>
     </div>
   );
 };

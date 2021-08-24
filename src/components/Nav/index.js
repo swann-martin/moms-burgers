@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './style.scss';
 
-const Nav = () => {
+const Nav = ({ cart }) => {
   return (
     <nav className="nav">
       <div className="nav-left">
@@ -17,7 +17,7 @@ const Nav = () => {
             className="nav-right-list-link"
             activeClassName="nav-right-list-link nav-right-list-link--active"
           >
-            Home
+            Mon panier <i className="fas fa-shopping-cart" /> {cart.length}
           </NavLink>
           <NavLink
             to="/menu"

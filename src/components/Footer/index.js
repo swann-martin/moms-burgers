@@ -34,7 +34,7 @@ const Footer = () => {
           target="__blank"
           rel="noreferer"
         >
-          <i class="fab fa-linkedin"></i>
+          <i className="fab fa-linkedin"></i>
         </a>
       </div>
       <p className="footer-copyright">&copy;Swann Martin 2021 @home</p>
