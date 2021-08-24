@@ -122,7 +122,7 @@ const products = [
     title: 'Frites',
     image:
       'https://images.unsplash.com/photo-1598679253544-2c97992403ea?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80',
-    ingredients: ['pommes de terre', 'sel', 'paprika', 'mayo'],
+    ingredients: ['patates', 'sel', 'paprika', 'mayo'],
     price: 2.5,
   },
   {
@@ -130,7 +130,7 @@ const products = [
     title: 'Potatoes',
     image:
       'https://images.unsplash.com/photo-1576100246753-1c1b4fa73481?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80',
-    ingredients: ['pommes de terre', 'sel', 'paprika', 'sauce potatoes'],
+    ingredients: ['patates', 'sel', 'paprika', 'sauce potatoes'],
     price: 2.5,
   },
   {

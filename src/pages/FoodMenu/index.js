@@ -3,14 +3,7 @@ import React from 'react';
 import Card from '../../components/Card';
 import './style.scss';
 
-const FoodMenu = ({
-  products,
-  total,
-  cart,
-  addToCart,
-  handleSideChange,
-  side,
-}) => {
+const FoodMenu = ({ products, total, cart, addToCart }) => {
   console.log('products', products);
   return (
     <div className="food">
@@ -28,19 +21,24 @@ const FoodMenu = ({
           ))}
       </section>
 
-      <section className="order">
-        <h2>Commande : </h2>
-        <div className="order-content">
-          <div className="order-content-list">
+      <section className="food-order">
+        <h2 className="food-order-title">Commande en cours : </h2>
+        <div className="food-order-content">
+          <div className="food-order-content-list">
             {console.log(cart)}
             {cart &&
               cart.map((food) => (
-                <p key={food.id}>
-                  {food.title} <span>: {food.price}€</span>
+                <p key={food.id} className="food-order-content-list-element">
+                  {food.title}&nbsp;:&nbsp;
+                  <span className="food-order-content-list-element-price">
+                    {food.price}€
+                  </span>
                 </p>
               ))}
           </div>
-          <h4> Montant total de la commande :{total}€ </h4>
+          <h4 className="food-order-content-total">
+            Montant total de la commande&nbsp;:&nbsp;{total}€
+          </h4>
           <div className="food-btn">Commander</div>
         </div>
       </section>

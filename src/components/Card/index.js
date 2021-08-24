@@ -2,7 +2,7 @@ import React from 'react';
 import './style.scss';
 
 const Card = ({ product, addToCart }) => {
-  const { ingredients, image, title } = product;
+  const { ingredients, image, title, price } = product;
   return (
     <div className="card">
       <div className="card-left">
@@ -11,6 +11,7 @@ const Card = ({ product, addToCart }) => {
       <div className="card-right">
         <h2 className="card-title">{title}</h2>
         <ul className="card-list">
+          <li>{price}€</li>
           {ingredients.map((ingredient, id) => (
             <li key={(ingredient, id)} className="card-list-ingredient">
               {ingredient}

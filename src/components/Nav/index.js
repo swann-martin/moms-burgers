@@ -6,19 +6,13 @@ const Nav = ({ cart }) => {
   return (
     <nav className="nav">
       <div className="nav-left">
-        <img src="" alt="" />
-        <h1 className="nav-left-title">Mom's Burgers</h1>
+        <NavLink to="/">
+          <img src="" alt="" />
+          <h1 className="nav-left-title">Mom's Burgers</h1>
+        </NavLink>
       </div>
       <div className="nav-right">
         <ul className="nav-right-list">
-          <NavLink
-            exact
-            to="/"
-            className="nav-right-list-link"
-            activeClassName="nav-right-list-link nav-right-list-link--active"
-          >
-            Mon panier <i className="fas fa-shopping-cart" /> {cart.length}
-          </NavLink>
           <NavLink
             to="/menu"
             className="nav-right-list-link"
@@ -34,11 +28,12 @@ const Nav = ({ cart }) => {
             Nos valeurs
           </NavLink>
           <NavLink
+            exact
             to="/order"
-            className="nav-right-list-link nav-right-list-link--order"
-            activeClassName="nav-right-list-link--order nav-right-list-link--active"
+            className="nav-right-list-link"
+            activeClassName="nav-right-list-link nav-right-list-link--active"
           >
-            Commander
+            Mon panier <i className="fas fa-shopping-cart" /> {cart.length}
           </NavLink>
         </ul>
       </div>

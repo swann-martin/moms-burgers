@@ -3,7 +3,39 @@
 .home {
   width: 100%;
   min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background-color: vars.$white;
-  color: vars.$color-3;
   text-align: center;
+  background: linear-gradient(
+      to Bottom,
+      vars.$color-primary-rgb,
+      vars.$color-4-rgb
+    ),
+    url('../../assets/bg.webp') no-repeat center/cover;
+
+  &-btn {
+    color: vars.$white;
+    background-color: vars.$color-3;
+    padding: 0.5rem;
+    border-radius: 10px;
+    border: 1px solid vars.$color-3;
+    box-shadow: 2.5px 2.5px 2.5px rgba(#000, 0.4);
+    transition: all 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: vars.$white;
+    margin: 3rem 0;
+    max-width: 20rem;
+
+    &:hover,
+    &:active {
+      background-color: vars.$color-4;
+      color: vars.$white;
+    }
+  }
 }

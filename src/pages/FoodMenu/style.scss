@@ -1,8 +1,7 @@
 @use 'src/styles/vars.scss';
 
 .food {
-  width: 90vw;
-  margin: auto;
+  width: 80vw;
   &-burgers {
     display: flex;
     flex-wrap: wrap;
@@ -14,9 +13,7 @@
     grid-auto-rows: minmax(250px, auto);
     grid-gap: 10px;
   }
-  &-sides {
-    margin: 2rem 0;
-  }
+
   &-btn {
     background-color: vars.$color-3;
     padding: 0.5rem;
@@ -38,10 +35,22 @@
       color: vars.$white;
     }
   }
-  &-total {
-    width: 100%;
+  &-order {
+    margin: 3rem 0;
     &-content {
-      display: flex;
+      &-list {
+        margin: 1rem 0;
+        &-element {
+          margin: 0.25rem 0;
+          &-price {
+            font-weight: bold;
+            color: vars.$color-4;
+          }
+        }
+      }
+      &-total {
+        margin: 1rem 0;
+      }
     }
   }
 }
