@@ -11,18 +11,18 @@ import Order from './pages/Order';
 import data from './data';
 
 const App = () => {
-  const cartFromLocalStorage = JSON.parse(localStorage.getItem('cart') || '[]');
-  const [cart, setCart] = useState(cartFromLocalStorage);
+  const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
   const [side, setSide] = useState('');
   const [products, setProducts] = useState(data);
-
-  useEffect(() => {
-    localStorage.setItem('cart', JSON.stringify(cart));
-  }, [cart]);
+  const [orderStatus, setOrderStatus] = useState(false);
 
   const handleSideChange = (evt) => {
     setSide(evt.value);
+  };
+
+  const toggleOrderStatus = () => {
+    setOrderStatus(!orderStatus);
   };
 
   const addToCart = (product) => {
@@ -35,6 +35,9 @@ const App = () => {
     setCart(cart.filter((product) => product.id !== productToRemove.id));
     let newTotal = total - productToRemove.price;
     setTotal(newTotal);
+    if (total < 0) {
+      setTotal(0);
+    }
   };
 
   return (
@@ -50,6 +53,8 @@ const App = () => {
             handleSideChange={handleSideChange}
             side={side}
             total={total}
+            toggleOrderStatus={toggleOrderStatus}
+            orderStatus={orderStatus}
           />
         </Route>
 

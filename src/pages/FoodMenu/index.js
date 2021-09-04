@@ -3,7 +3,15 @@ import React, { useEffect } from 'react';
 import Card from '../../components/Card';
 import './style.scss';
 
-const FoodMenu = ({ products, total, cart, addToCart, removeFromCart }) => {
+const FoodMenu = ({
+  products,
+  total,
+  cart,
+  addToCart,
+  removeFromCart,
+  orderStatus,
+  toggleOrderStatus,
+}) => {
   console.log('products', products);
   useEffect(() => {}, [cart]);
   return (
@@ -58,7 +66,9 @@ const FoodMenu = ({ products, total, cart, addToCart, removeFromCart }) => {
           <h4 className="food-order-content-total">
             Montant total de la commande&nbsp;:&nbsp;{total}€
           </h4>
-          <div className="food-btn">Commander</div>
+          <div className="food-btn" onClick={toggleOrderStatus}>
+            Commander
+          </div>
         </div>
       </section>
     </div>
