@@ -21,8 +21,14 @@ const App = () => {
   };
 
   const addToCart = (product) => {
-    setCart([...cart, product]);
+    setCart([...cart, { ...product }]);
     let newTotal = total + product.price;
+    setTotal(newTotal);
+  };
+
+  const removeFromCart = (productToRemove) => {
+    setCart(cart.filter((product) => product.id !== productToRemove.id));
+    let newTotal = total - productToRemove.price;
     setTotal(newTotal);
   };
   return (
@@ -34,6 +40,7 @@ const App = () => {
             products={products}
             cart={cart}
             addToCart={addToCart}
+            removeFromCart={removeFromCart}
             handleSideChange={handleSideChange}
             side={side}
             total={total}
@@ -42,7 +49,7 @@ const App = () => {
 
         <Route path="/values" component={Values} />
         <Route path="/order">
-          <Order cart={cart} />
+          <Order cart={cart} removeFromCart={removeFromCart} />
         </Route>
         <Route path="/" component={Home} />
       </Switch>

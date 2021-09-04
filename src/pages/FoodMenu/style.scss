@@ -37,6 +37,11 @@
       background-color: vars.$color-4;
       color: vars.$white;
     }
+    &--card {
+      position: relative;
+      top: -45px;
+      right: -8rem;
+    }
   }
   &-order {
     margin: 3rem 0;
@@ -44,7 +49,11 @@
       &-list {
         margin: 1rem 0;
         &-element {
-          margin: 0.25rem 0;
+          width: 15rem;
+          margin: 0.25rem;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
           &-price {
             font-weight: bold;
             color: vars.$color-4;

@@ -18,9 +18,9 @@ const Card = ({ product, addToCart }) => {
             </li>
           ))}
         </ul>
-        <div className="card-btn" onClick={() => addToCart(product)}>
+        {/* <div className="card-btn" onClick={() => addToCart(product)}>
           Ajouter au panier
-        </div>
+        </div> */}
       </div>
     </div>
   );
