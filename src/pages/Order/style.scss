@@ -1,2 +1,14 @@
 .order {
+  &-title {
+    text-align: center;
+  }
+  &-content {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    .card {
+      margin-left: 1rem;
+    }
+  }
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import Card from '../../components/Card';
+import './style.scss';
 
 const Order = ({ cart }) => {
   return (
@@ -8,13 +9,14 @@ const Order = ({ cart }) => {
       <div className="order-content">
         {cart &&
           cart.map((food) => (
-            <p key={food.id} className="order-content-list-element">
-              <Card product={food} />
-              {food.title}&nbsp;:&nbsp;
+            <div key={food.id} className="order-content-list-element">
+              {/* {food.title}&nbsp;:&nbsp;
               <span className="order-content-list-element-price">
                 {food.price}€
-              </span>
-            </p>
+              </span> */}
+              <Card product={food} />
+            </div>
+
           ))}
       </div>
     </div>

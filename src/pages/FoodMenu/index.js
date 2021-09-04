@@ -9,6 +9,7 @@ const FoodMenu = ({ products, total, cart, addToCart }) => {
     <div className="food">
       <h1 className="food-title">La carte</h1>
       <h2 className="food-subttitle">Découvrez nos burgers</h2>
+      <h2 className="food-subttitle">* une alternative à galette végé ou viande pour chaque burger</h2>
       <section className="food-burgers">
         {products &&
           products.map((product) => (

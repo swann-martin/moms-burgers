@@ -2,16 +2,19 @@
 
 .food {
   width: 80vw;
+
   &-burgers {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  &-burgers {
-    margin: auto;
+    margin: 2rem auto;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-auto-rows: minmax(250px, auto);
     grid-gap: 10px;
+    @media screen and(max-width:1024px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media screen and(max-width:500px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
   }
 
   &-btn {

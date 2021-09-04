@@ -22,7 +22,6 @@ const products = [
       'https://images.unsplash.com/photo-1516774266634-15661f692c19?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=966&q=80',
     ingredients: [
       'buns',
-      'mergez',
       'salade',
       'tomate',
       'oignons',
