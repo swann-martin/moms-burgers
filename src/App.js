@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import './App.scss';
 import Footer from './components/Footer';
@@ -11,10 +11,15 @@ import Order from './pages/Order';
 import data from './data';
 
 const App = () => {
-  const [cart, setCart] = useState([]);
+  const cartFromLocalStorage = JSON.parse(localStorage.getItem('cart') || '[]');
+  const [cart, setCart] = useState(cartFromLocalStorage);
   const [total, setTotal] = useState(0);
   const [side, setSide] = useState('');
   const [products, setProducts] = useState(data);
+
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cart));
+  }, [cart]);
 
   const handleSideChange = (evt) => {
     setSide(evt.value);
@@ -31,6 +36,7 @@ const App = () => {
     let newTotal = total - productToRemove.price;
     setTotal(newTotal);
   };
+
   return (
     <div className="app">
       <Nav cart={cart} />
