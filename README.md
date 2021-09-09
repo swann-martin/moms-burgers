@@ -1,4 +1,9 @@
-# Getting Started with Create React App
+# Moms's Burger was created for fun using React
+
+The aim of this project was to create a fake burger shop for an online order. It uses react-router for navigation and useState hooks for the state management of the cart and sass for style.
+
+![home](public/MomsBurgers-Home.png)
+![menu](public/MomsBurgers-Menu.png)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
