@@ -26,6 +26,9 @@
         }
       }
       &-list {
+        @media screen and (min-width: 900px) {
+          display: none;
+        }
         display: flex;
         flex-direction: column;
         position: absolute;
@@ -38,7 +41,7 @@
         opacity: 1;
         border-radius: 10px;
         &--closed {
-          transform: translateX(60px);
+          transform: translateX(20px);
           opacity: 0;
         }
         &-link {
