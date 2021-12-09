@@ -16,6 +16,7 @@ const App = () => {
   const [side, setSide] = useState('');
   const [products, setProducts] = useState(data);
   const [orderStatus, setOrderStatus] = useState(false);
+  const [menuStatus, setMenuStatus] = useState(false);
 
   const handleSideChange = (evt) => {
     setSide(evt.value);
@@ -23,6 +24,10 @@ const App = () => {
 
   const toggleOrderStatus = () => {
     setOrderStatus(!orderStatus);
+  };
+
+  const toggleMenuStatus = () => {
+    setMenuStatus(!menuStatus);
   };
 
   const addToCart = (product) => {
@@ -42,7 +47,7 @@ const App = () => {
 
   return (
     <div className="app">
-      <Nav cart={cart} />
+      <Nav cart={cart} menuStatus={menuStatus} toggleMenuStatus={toggleMenuStatus} />
       <Switch>
         <Route path="/menu">
           <FoodMenu
