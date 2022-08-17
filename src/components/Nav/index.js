@@ -14,9 +14,9 @@ const Nav = ({ cart, toggleMenuStatus, menuStatus }) => {
 
       <div className="nav-right">
         <div className="nav-right-burger" onClick={toggleMenuStatus}>
-          {(!menuStatus && < i class="fas fa-hamburger" />)
+          {(!menuStatus && < i className="fas fa-hamburger" />)
           }
-          {(menuStatus && < i class="fas fa-times" />)
+          {(menuStatus && < i className="fas fa-times" />)
           }
         </div>
         {
@@ -27,14 +27,14 @@ const Nav = ({ cart, toggleMenuStatus, menuStatus }) => {
               activeClassName="nav-right-burger-list-link"
             >
               La carte
-          </NavLink>
+            </NavLink>
             <NavLink
               to="/values"
               className="nav-right-burger-list-link"
               activeClassName="nav-right-burger-list-link nav-right-burger-list-link--active"
             >
               Nos valeurs
-          </NavLink>
+            </NavLink>
             <NavLink
               exact
               to="/order"

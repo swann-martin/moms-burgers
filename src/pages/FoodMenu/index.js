@@ -12,8 +12,7 @@ const FoodMenu = ({
   orderStatus,
   toggleOrderStatus,
 }) => {
-  console.log('products', products);
-  useEffect(() => {}, [cart]);
+  useEffect(() => { }, [cart]);
   return (
     <div className="food">
       <h1 className="food-title">La carte</h1>
@@ -23,8 +22,8 @@ const FoodMenu = ({
       </h2>
       <section className="food-burgers">
         {products &&
-          products.map((product) => (
-            <div>
+          products.map((product, index) => (
+            <div key={product?.id ? product.id : `product${index}`}>
               <Card
                 key={product.id}
                 product={product}
@@ -45,7 +44,6 @@ const FoodMenu = ({
         <h2 className="food-order-title">Commande en cours : </h2>
         <div className="food-order-content">
           <div className="food-order-content-list">
-            {console.log(cart)}
             {cart &&
               cart.map((food) => (
                 <p key={food.id} className="food-order-content-list-element">
