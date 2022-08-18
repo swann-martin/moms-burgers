@@ -1,26 +1,40 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { Product } from '../../App';
 import './style.scss';
 
-const Nav = ({ cart, toggleMenuStatus, menuStatus }) => {
+const Nav = ({
+  cart,
+  toggleMenuStatus,
+  menuStatus,
+}: {
+  cart: Product[] | [];
+  toggleMenuStatus: any;
+  menuStatus: boolean;
+}) => {
+  const restaurantTitle: string = "Mom's Burgers";
   return (
     <nav className="nav">
       <div className="nav-left">
         <NavLink to="/">
           <img src="" alt="" />
-          <h1 className="nav-left-title">Mom's Burgers</h1>
+          <h1 className="nav-left-title">{restaurantTitle}</h1>
         </NavLink>
       </div>
 
       <div className="nav-right">
         <div className="nav-right-burger" onClick={toggleMenuStatus}>
-          {(!menuStatus && < i className="fas fa-hamburger" />)
-          }
-          {(menuStatus && < i className="fas fa-times" />)
-          }
+          {!menuStatus && <i className="fas fa-hamburger" />}
+          {menuStatus && <i className="fas fa-times" />}
         </div>
         {
-          <ul className={menuStatus ? "nav-right-burger-list" : "nav-right-burger-list nav-right-burger-list--closed"}>
+          <ul
+            className={
+              menuStatus
+                ? 'nav-right-burger-list'
+                : 'nav-right-burger-list nav-right-burger-list--closed'
+            }
+          >
             <NavLink
               to="/menu"
               className="nav-right-burger-list-link"
@@ -41,7 +55,10 @@ const Nav = ({ cart, toggleMenuStatus, menuStatus }) => {
               className="nav-right-burger-list-link"
               activeClassName="nav-right-burger-list-link nav-right-burger-list-link--active"
             >
-              Mon panier <i className="fas fa-shopping-cart" /><span className="nav-right-burger-list-link-badge">{cart.length}</span>
+              Mon panier <i className="fas fa-shopping-cart" />
+              <span className="nav-right-burger-list-link-badge">
+                {cart.length}
+              </span>
             </NavLink>
             <li className="nav-right-burger-list-element"></li>
           </ul>
@@ -67,7 +84,8 @@ const Nav = ({ cart, toggleMenuStatus, menuStatus }) => {
             className="nav-right-list-link"
             activeClassName="nav-right-list-link nav-right-list-link--active"
           >
-            Mon panier <i className="fas fa-shopping-cart" /> <span className="nav-right-list-link-badge">{cart.length}</span>
+            Mon panier <i className="fas fa-shopping-cart" />{' '}
+            <span className="nav-right-list-link-badge">{cart.length}</span>
           </NavLink>
         </ul>
       </div>

@@ -6,19 +6,26 @@ import Nav from './components/Nav';
 import Home from './pages/Home';
 import FoodMenu from './pages/FoodMenu';
 import Values from './pages/Values';
-import Order from './pages/Order';
 
 import data from './data';
 
+export interface Product {
+  id: string;
+  ingredients: string[];
+  image: string;
+  title: string;
+  price: number;
+}
+
 const App = () => {
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState<Product[] | []>([]);
   const [total, setTotal] = useState(0);
   const [side, setSide] = useState('');
   const [products, setProducts] = useState(data);
   const [orderStatus, setOrderStatus] = useState(false);
   const [menuStatus, setMenuStatus] = useState(false);
 
-  const handleSideChange = (evt) => {
+  const handleSideChange = (evt: any) => {
     setSide(evt.value);
   };
 
@@ -30,13 +37,14 @@ const App = () => {
     setMenuStatus(!menuStatus);
   };
 
-  const addToCart = (product) => {
-    setCart([...cart, { ...product }]);
+  const addToCart = (product: Product) => {
+    const newCart = [...cart, { ...product }];
+    setCart(newCart);
     let newTotal = total + product.price;
     setTotal(newTotal);
   };
 
-  const removeFromCart = (productToRemove) => {
+  const removeFromCart = (productToRemove: Product) => {
     setCart(cart.filter((product) => product.id !== productToRemove.id));
     let newTotal = total - productToRemove.price;
     setTotal(newTotal);
@@ -47,7 +55,11 @@ const App = () => {
 
   return (
     <div className="app">
-      <Nav cart={cart} menuStatus={menuStatus} toggleMenuStatus={toggleMenuStatus} />
+      <Nav
+        cart={cart}
+        menuStatus={menuStatus}
+        toggleMenuStatus={toggleMenuStatus}
+      />
       <Switch>
         <Route path="/menu">
           <FoodMenu
@@ -64,9 +76,7 @@ const App = () => {
         </Route>
 
         <Route path="/values" component={Values} />
-        <Route path="/order">
-          <Order cart={cart} removeFromCart={removeFromCart} />
-        </Route>
+
         <Route path="/" component={Home} />
       </Switch>
       <Footer />

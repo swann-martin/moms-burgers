@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Product } from '../../App';
 
 import Card from '../../components/Card';
 import './style.scss';
@@ -11,8 +12,20 @@ const FoodMenu = ({
   removeFromCart,
   orderStatus,
   toggleOrderStatus,
+  handleSideChange,
+  side,
+}: {
+  products: Product[];
+  total?: number;
+  cart: Product[] | [];
+  addToCart: any;
+  removeFromCart?: any;
+  orderStatus?: boolean;
+  toggleOrderStatus: any;
+  handleSideChange?: any;
+  side?: string;
 }) => {
-  useEffect(() => { }, [cart]);
+  useEffect(() => {}, [cart]);
   return (
     <div className="food">
       <h1 className="food-title">La carte</h1>
@@ -24,12 +37,7 @@ const FoodMenu = ({
         {products &&
           products.map((product, index) => (
             <div key={product?.id ? product.id : `product${index}`}>
-              <Card
-                key={product.id}
-                product={product}
-                className="card"
-                addToCart={addToCart}
-              />
+              <Card key={product.id} product={product} addToCart={addToCart} />
               <button
                 className="food-btn food-btn--card"
                 onClick={() => addToCart(product)}
