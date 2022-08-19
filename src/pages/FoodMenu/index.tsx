@@ -47,36 +47,6 @@ const FoodMenu = ({
             </div>
           ))}
       </section>
-
-      <section className="food-order">
-        <h2 className="food-order-title">Commande en cours : </h2>
-        <div className="food-order-content">
-          <div className="food-order-content-list">
-            {cart &&
-              cart.map((food) => (
-                <p key={food.id} className="food-order-content-list-element">
-                  {food.title}&nbsp;:&nbsp;
-                  <span className="food-order-content-list-element-price">
-                    {food.price}€
-                  </span>
-                  <button
-                    title="retirer du panier"
-                    className="food-btn"
-                    onClick={() => removeFromCart(food)}
-                  >
-                    -
-                  </button>
-                </p>
-              ))}
-          </div>
-          <h4 className="food-order-content-total">
-            Montant total de la commande&nbsp;:&nbsp;{total}€
-          </h4>
-          <div className="food-btn" onClick={toggleOrderStatus}>
-            Commander
-          </div>
-        </div>
-      </section>
     </div>
   );
 };

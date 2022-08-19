@@ -1,16 +1,25 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Product } from '../../App';
+import Cart from '../Cart';
 import './style.scss';
 
 const Nav = ({
   cart,
   toggleMenuStatus,
   menuStatus,
+  removeFromCart,
+  total,
+  toggleOrderStatus,
+  orderStatus,
 }: {
   cart: Product[] | [];
   toggleMenuStatus: any;
   menuStatus: boolean;
+  removeFromCart: any;
+  total: number;
+  toggleOrderStatus: any;
+  orderStatus: boolean;
 }) => {
   const restaurantTitle: string = "Mom's Burgers";
   return (
@@ -49,17 +58,15 @@ const Nav = ({
             >
               Nos valeurs
             </NavLink>
-            <NavLink
-              exact
-              to="/order"
-              className="nav-right-burger-list-link"
-              activeClassName="nav-right-burger-list-link nav-right-burger-list-link--active"
+            <span
+              className="nav-right-burger-list-link nav-cart"
+              onClick={toggleOrderStatus}
             >
               Mon panier <i className="fas fa-shopping-cart" />
               <span className="nav-right-burger-list-link-badge">
                 {cart.length}
               </span>
-            </NavLink>
+            </span>
             <li className="nav-right-burger-list-element"></li>
           </ul>
         }
@@ -78,17 +85,25 @@ const Nav = ({
           >
             Nos valeurs
           </NavLink>
-          <NavLink
-            exact
-            to="/order"
-            className="nav-right-list-link"
-            activeClassName="nav-right-list-link nav-right-list-link--active"
+          <span
+            className="nav-right-list-link  nav-cart"
+            onClick={toggleOrderStatus}
           >
             Mon panier <i className="fas fa-shopping-cart" />{' '}
             <span className="nav-right-list-link-badge">{cart.length}</span>
-          </NavLink>
+          </span>
         </ul>
       </div>
+      {orderStatus && (
+        <div className="cart">
+          <Cart
+            cart={cart}
+            removeFromCart={removeFromCart}
+            total={total}
+            toggleOrderStatus={toggleOrderStatus}
+          />
+        </div>
+      )}
     </nav>
   );
 };

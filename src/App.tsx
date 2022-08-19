@@ -59,6 +59,10 @@ const App = () => {
         cart={cart}
         menuStatus={menuStatus}
         toggleMenuStatus={toggleMenuStatus}
+        removeFromCart={removeFromCart}
+        total={total}
+        toggleOrderStatus={toggleOrderStatus}
+        orderStatus={orderStatus}
       />
       <Switch>
         <Route path="/menu">
