@@ -8,6 +8,7 @@ import FoodMenu from './pages/FoodMenu';
 import Values from './pages/Values';
 
 import data from './data';
+import Form from './components/Form';
 
 export interface Product {
   id: string;
@@ -23,6 +24,7 @@ const App = () => {
   const [side, setSide] = useState('');
   const [products, setProducts] = useState(data);
   const [orderStatus, setOrderStatus] = useState(false);
+  const [formStatus, setFormStatus] = useState(false);
   const [menuStatus, setMenuStatus] = useState(false);
 
   const handleSideChange = (evt: any) => {
@@ -31,6 +33,9 @@ const App = () => {
 
   const toggleOrderStatus = () => {
     setOrderStatus(!orderStatus);
+  };
+  const toggleFormStatus = () => {
+    setFormStatus(!formStatus);
   };
 
   const toggleMenuStatus = () => {
@@ -62,8 +67,12 @@ const App = () => {
         removeFromCart={removeFromCart}
         total={total}
         toggleOrderStatus={toggleOrderStatus}
+        toggleFormStatus={toggleFormStatus}
         orderStatus={orderStatus}
       />
+      {cart?.length > 0 && formStatus && (
+        <Form toggleFormStatus={toggleFormStatus} />
+      )}
       <Switch>
         <Route path="/menu">
           <FoodMenu

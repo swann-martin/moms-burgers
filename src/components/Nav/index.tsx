@@ -11,6 +11,7 @@ const Nav = ({
   removeFromCart,
   total,
   toggleOrderStatus,
+  toggleFormStatus,
   orderStatus,
 }: {
   cart: Product[] | [];
@@ -19,6 +20,7 @@ const Nav = ({
   removeFromCart: any;
   total: number;
   toggleOrderStatus: any;
+  toggleFormStatus: any;
   orderStatus: boolean;
 }) => {
   const restaurantTitle: string = "Mom's Burgers";
@@ -101,6 +103,7 @@ const Nav = ({
             removeFromCart={removeFromCart}
             total={total}
             toggleOrderStatus={toggleOrderStatus}
+            toggleFormStatus={toggleFormStatus}
           />
         </div>
       )}
