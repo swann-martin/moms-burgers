@@ -31,13 +31,13 @@ const Form = ({ toggleFormStatus }: { toggleFormStatus: any }) => {
           </li>
 
           <li>
-            <label htmlFor="email">email</label>
+            <label htmlFor="email">Email</label>
             <input type="email" id="email" />
           </li>
         </ul>
-        <div>
-          <button className="food-btn">Cancel</button>
-          <button className="food-btn">Valider</button>
+        <div className="form-btns">
+          <button className="food-btn cancel">Cancel</button>
+          <button className="food-btn validate">Valider</button>
         </div>
       </form>
     </div>

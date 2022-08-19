@@ -28,8 +28,7 @@ const Nav = ({
     <nav className="nav">
       <div className="nav-left">
         <NavLink to="/">
-          <img src="" alt="" />
-          <h1 className="nav-left-title">{restaurantTitle}</h1>
+          <h1 className="nav-title">{restaurantTitle}</h1>
         </NavLink>
       </div>
 
