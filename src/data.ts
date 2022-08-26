@@ -1,6 +1,9 @@
-const products = [
+import { Product } from './App';
+import { v4 as uuidv4 } from 'uuid';
+
+const products: Product[] = [
   {
-    id: '1',
+    id: uuidv4(),
     title: 'Mama française',
     image:
       'https://images.unsplash.com/photo-1603064752734-4c48eff53d05?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=634&q=80',
@@ -16,21 +19,15 @@ const products = [
     price: 6,
   },
   {
-    id: '2',
+    id: uuidv4(),
     title: 'Mama orientale',
     image:
       'https://images.unsplash.com/photo-1516774266634-15661f692c19?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=966&q=80',
-    ingredients: [
-      'buns',
-      'salade',
-      'tomate',
-      'oignons',
-      'sauce piquante',
-    ],
+    ingredients: ['buns', 'salade', 'tomate', 'oignons', 'sauce piquante'],
     price: 6,
   },
   {
-    id: '3',
+    id: uuidv4(),
     title: 'Mama anglaise',
     image:
       'https://images.unsplash.com/photo-1565299507177-b0ac66763828?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=664&q=80',
@@ -46,7 +43,7 @@ const products = [
     price: 6,
   },
   {
-    id: '4',
+    id: uuidv4(),
     title: 'Mama italienne ',
     image:
       'https://images.unsplash.com/photo-1513185158878-8d8c2a2a3da3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80',
@@ -61,7 +58,7 @@ const products = [
     price: 6,
   },
   {
-    id: '5',
+    id: uuidv4(),
     title: 'Mama tradi ',
     image:
       'https://images.unsplash.com/photo-1596662951482-0c4ba74a6df6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=633&q=80',
@@ -69,7 +66,7 @@ const products = [
     price: 6,
   },
   {
-    id: '6',
+    id: uuidv4(),
     title: 'Mama japonnaise',
     image:
       'https://images.unsplash.com/photo-1582196016295-f8c8bd4b3a99?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
@@ -85,7 +82,7 @@ const products = [
     price: 6,
   },
   {
-    id: '7',
+    id: uuidv4(),
     title: 'Mama mexicaine',
     image:
       'https://images.unsplash.com/photo-1584947897558-4ee278fbbddf?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=633&q=80',
@@ -101,7 +98,7 @@ const products = [
     price: 6,
   },
   {
-    id: '8',
+    id: uuidv4(),
     title: 'Mama vegé',
     image:
       'https://images.unsplash.com/photo-1520072959219-c595dc870360?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1453&q=80',
@@ -117,7 +114,7 @@ const products = [
     price: 6,
   },
   {
-    id: '9',
+    id: uuidv4(),
     title: 'Frites',
     image:
       'https://images.unsplash.com/photo-1598679253544-2c97992403ea?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80',
@@ -125,7 +122,7 @@ const products = [
     price: 2.5,
   },
   {
-    id: '10',
+    id: uuidv4(),
     title: 'Potatoes',
     image:
       'https://images.unsplash.com/photo-1576100246753-1c1b4fa73481?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80',
@@ -133,7 +130,7 @@ const products = [
     price: 2.5,
   },
   {
-    id: '11',
+    id: uuidv4(),
     title: 'Nuggets végé',
     image:
       'https://images.unsplash.com/photo-1585325701956-60dd9c8553bc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80',
@@ -141,7 +138,7 @@ const products = [
     price: 2.5,
   },
   {
-    id: '12',
+    id: uuidv4(),
     title: 'Limonade',
     image:
       'https://images.unsplash.com/photo-1580902777696-56e74256f83f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=634&q=80',
@@ -149,7 +146,7 @@ const products = [
     price: 1.5,
   },
   {
-    id: '14',
+    id: uuidv4(),
     title: 'Donuts',
     image:
       'https://images.unsplash.com/photo-1551024601-bec78aea704b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80',

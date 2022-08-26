@@ -1,12 +1,16 @@
 import React from 'react';
 import './style.scss';
+
 const Footer = () => {
+  const date = new Date();
+  const year = date.getFullYear();
+
   return (
     <div className="footer">
       <div className="footer-social">
         <a
           className="footer-social-link"
-          href="google.com"
+          href="https://github.com/swann-martin/moms-burgers/tree/develop"
           target="__blank"
           rel="noreferer"
         >
@@ -14,7 +18,7 @@ const Footer = () => {
         </a>
         <a
           className="footer-social-link"
-          href="google.com"
+          href="https://github.com/swann-martin/moms-burgers/tree/develop"
           target="__blank"
           rel="noreferer"
         >
@@ -22,7 +26,7 @@ const Footer = () => {
         </a>
         <a
           className="footer-social-link"
-          href="google.com"
+          href="https://github.com/swann-martin/moms-burgers/tree/develop"
           target="__blank"
           rel="noreferer"
         >
@@ -30,14 +34,14 @@ const Footer = () => {
         </a>
         <a
           className="footer-social-link"
-          href="google.com"
+          href="https://github.com/swann-martin/moms-burgers/tree/develop"
           target="__blank"
           rel="noreferer"
         >
           <i className="fab fa-linkedin"></i>
         </a>
       </div>
-      <p className="footer-copyright">&copy;Swann Martin 2021 @home</p>
+      <p className="footer-copyright">&copy;Swann Martin {year} @home</p>
     </div>
   );
 };

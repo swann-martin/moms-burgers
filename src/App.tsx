@@ -6,38 +6,55 @@ import Nav from './components/Nav';
 import Home from './pages/Home';
 import FoodMenu from './pages/FoodMenu';
 import Values from './pages/Values';
-import Order from './pages/Order';
-
+import { v4 as uuidv4 } from 'uuid';
 import data from './data';
+import Form from './components/Form';
+
+export interface Product {
+  orderId?: string;
+  id: string;
+  ingredients: string[];
+  image: string;
+  title: string;
+  price: number;
+}
 
 const App = () => {
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState<Product[] | []>([]);
   const [total, setTotal] = useState(0);
   const [side, setSide] = useState('');
   const [products, setProducts] = useState(data);
   const [orderStatus, setOrderStatus] = useState(false);
+  const [formStatus, setFormStatus] = useState(false);
   const [menuStatus, setMenuStatus] = useState(false);
 
-  const handleSideChange = (evt) => {
+  const handleSideChange = (evt: any) => {
     setSide(evt.value);
   };
 
   const toggleOrderStatus = () => {
     setOrderStatus(!orderStatus);
   };
+  const toggleFormStatus = () => {
+    setFormStatus(!formStatus);
+  };
 
   const toggleMenuStatus = () => {
     setMenuStatus(!menuStatus);
   };
 
-  const addToCart = (product) => {
-    setCart([...cart, { ...product }]);
+  const addToCart = (product: Product) => {
+    const addedProduct = { ...product, orderId: uuidv4() };
+    const newCart = [...cart, addedProduct];
+    setCart(newCart);
     let newTotal = total + product.price;
     setTotal(newTotal);
   };
 
-  const removeFromCart = (productToRemove) => {
-    setCart(cart.filter((product) => product.id !== productToRemove.id));
+  const removeFromCart = (productToRemove: Product) => {
+    setCart(
+      cart.filter((product) => product.orderId !== productToRemove.orderId),
+    );
     let newTotal = total - productToRemove.price;
     setTotal(newTotal);
     if (total < 0) {
@@ -47,7 +64,19 @@ const App = () => {
 
   return (
     <div className="app">
-      <Nav cart={cart} menuStatus={menuStatus} toggleMenuStatus={toggleMenuStatus} />
+      <Nav
+        cart={cart}
+        menuStatus={menuStatus}
+        toggleMenuStatus={toggleMenuStatus}
+        removeFromCart={removeFromCart}
+        total={total}
+        toggleOrderStatus={toggleOrderStatus}
+        toggleFormStatus={toggleFormStatus}
+        orderStatus={orderStatus}
+      />
+      {cart?.length > 0 && formStatus && (
+        <Form toggleFormStatus={toggleFormStatus} />
+      )}
       <Switch>
         <Route path="/menu">
           <FoodMenu
@@ -64,9 +93,7 @@ const App = () => {
         </Route>
 
         <Route path="/values" component={Values} />
-        <Route path="/order">
-          <Order cart={cart} removeFromCart={removeFromCart} />
-        </Route>
+
         <Route path="/" component={Home} />
       </Switch>
       <Footer />

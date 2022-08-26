@@ -1,8 +1,15 @@
 import React from 'react';
+import { Product } from '../../App';
 import './style.scss';
 
-const Card = ({ product, addToCart }) => {
-  const { ingredients, image, title, price } = product;
+const Card = ({
+  product,
+  addToCart,
+}: {
+  product: Product;
+  addToCart: () => {};
+}) => {
+  const { id, ingredients, image, title, price } = product;
   return (
     <div className="card">
       <div className="card-left">
@@ -12,8 +19,8 @@ const Card = ({ product, addToCart }) => {
         <h2 className="card-title">{title}</h2>
         <ul className="card-list">
           <li>{price}€</li>
-          {ingredients.map((ingredient, id) => (
-            <li key={(ingredient, id)} className="card-list-ingredient">
+          {ingredients.map((ingredient: string, index: number) => (
+            <li key={`${ingredient}${index}`} className="card-list-ingredient">
               {ingredient}
             </li>
           ))}

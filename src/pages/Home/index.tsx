@@ -3,11 +3,13 @@ import { Link } from 'react-router-dom';
 import './style.scss';
 
 const Home = () => {
+  const title = 'Les burgers de maman';
+  const btnText = 'Voir nos burgers';
   return (
     <div className="home">
-      <h1>Les burgers de maman</h1>
+      <h1>{title}</h1>
       <Link to="/menu" className="home-btn">
-        Commander
+        {btnText}
       </Link>
     </div>
   );
