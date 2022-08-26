@@ -26,7 +26,9 @@
   position: absolute;
   right: 20px;
   top: 20px;
-  &:hover:active {
-    background-color: vars.$color-2;
+  transition: all 2ms ease-in-out;
+  &:hover,
+  &:active {
+    background-color: vars.$color-4;
   }
 }
