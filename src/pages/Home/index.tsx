@@ -4,7 +4,7 @@ import './style.scss';
 
 const Home = () => {
   const title = 'Les burgers de maman';
-  const btnText = 'Commander';
+  const btnText = 'Voir nos burgers';
   return (
     <div className="home">
       <h1>{title}</h1>

@@ -7,11 +7,13 @@ const Cart = ({
   removeFromCart,
   total = 0,
   toggleOrderStatus,
+  toggleFormStatus,
 }: {
   cart: Product[];
   removeFromCart: any;
   total: number;
   toggleOrderStatus: any;
+  toggleFormStatus: any;
 }) => {
   return (
     <section className="cart">
@@ -40,11 +42,21 @@ const Cart = ({
               </p>
             ))}
         </div>
-        <h4 className="cart-content-total">Total &nbsp;:&nbsp;{total}€</h4>
-        {cart?.length > 0 && (
-          <span className="food-btn cart-orderBtn" onClick={toggleOrderStatus}>
-            Commander
-          </span>
+        {cart?.length > 0 ? (
+          <div>
+            <h4 className="cart-content-total">Total &nbsp;:&nbsp;{total}€</h4>
+            <span
+              className="food-btn cart-orderBtn"
+              onClick={() => {
+                toggleOrderStatus();
+                toggleFormStatus();
+              }}
+            >
+              Commander
+            </span>
+          </div>
+        ) : (
+          <h4 className="cart-content">Votre panier est vide</h4>
         )}
       </div>
     </section>

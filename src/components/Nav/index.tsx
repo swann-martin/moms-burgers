@@ -11,6 +11,7 @@ const Nav = ({
   removeFromCart,
   total,
   toggleOrderStatus,
+  toggleFormStatus,
   orderStatus,
 }: {
   cart: Product[] | [];
@@ -19,6 +20,7 @@ const Nav = ({
   removeFromCart: any;
   total: number;
   toggleOrderStatus: any;
+  toggleFormStatus: any;
   orderStatus: boolean;
 }) => {
   const restaurantTitle: string = "Mom's Burgers";
@@ -26,8 +28,7 @@ const Nav = ({
     <nav className="nav">
       <div className="nav-left">
         <NavLink to="/">
-          <img src="" alt="" />
-          <h1 className="nav-left-title">{restaurantTitle}</h1>
+          <h1 className="nav-title">{restaurantTitle}</h1>
         </NavLink>
       </div>
 
@@ -101,6 +102,7 @@ const Nav = ({
             removeFromCart={removeFromCart}
             total={total}
             toggleOrderStatus={toggleOrderStatus}
+            toggleFormStatus={toggleFormStatus}
           />
         </div>
       )}
