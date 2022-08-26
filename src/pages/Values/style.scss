@@ -1,0 +1,37 @@
+@use 'src/styles/vars.scss';
+.values {
+  width: 100%;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: vars.$white;
+  text-align: center;
+  background: linear-gradient(
+      to Bottom,
+      vars.$color-primary-rgb,
+      vars.$color-4-rgb
+    ),
+    url('../../assets/bg.webp') no-repeat center/cover;
+
+  &-title {
+    margin: 2rem;
+  }
+  &-main {
+    text-align: left;
+    background-color: vars.$color-4;
+    border-radius: 10px;
+    padding: 1rem;
+  }
+  &-subtitle {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-style: italic;
+  }
+  &-list {
+    li {
+      margin-bottom: 1rem;
+    }
+  }
+}
