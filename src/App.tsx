@@ -6,11 +6,12 @@ import Nav from './components/Nav';
 import Home from './pages/Home';
 import FoodMenu from './pages/FoodMenu';
 import Values from './pages/Values';
-
+import { v4 as uuidv4 } from 'uuid';
 import data from './data';
 import Form from './components/Form';
 
 export interface Product {
+  orderId?: string;
   id: string;
   ingredients: string[];
   image: string;
@@ -43,14 +44,17 @@ const App = () => {
   };
 
   const addToCart = (product: Product) => {
-    const newCart = [...cart, { ...product }];
+    const addedProduct = { ...product, orderId: uuidv4() };
+    const newCart = [...cart, addedProduct];
     setCart(newCart);
     let newTotal = total + product.price;
     setTotal(newTotal);
   };
 
   const removeFromCart = (productToRemove: Product) => {
-    setCart(cart.filter((product) => product.id !== productToRemove.id));
+    setCart(
+      cart.filter((product) => product.orderId !== productToRemove.orderId),
+    );
     let newTotal = total - productToRemove.price;
     setTotal(newTotal);
     if (total < 0) {

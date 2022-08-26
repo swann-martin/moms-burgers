@@ -130,7 +130,7 @@ const products: Product[] = [
     price: 2.5,
   },
   {
-    id: '11',
+    id: uuidv4(),
     title: 'Nuggets végé',
     image:
       'https://images.unsplash.com/photo-1585325701956-60dd9c8553bc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80',
@@ -138,7 +138,7 @@ const products: Product[] = [
     price: 2.5,
   },
   {
-    id: '12',
+    id: uuidv4(),
     title: 'Limonade',
     image:
       'https://images.unsplash.com/photo-1580902777696-56e74256f83f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=634&q=80',
@@ -146,7 +146,7 @@ const products: Product[] = [
     price: 1.5,
   },
   {
-    id: '14',
+    id: uuidv4(),
     title: 'Donuts',
     image:
       'https://images.unsplash.com/photo-1551024601-bec78aea704b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80',
