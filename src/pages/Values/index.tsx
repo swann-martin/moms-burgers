@@ -1,4 +1,5 @@
 import React from 'react';
+import { AddressMap } from '../../components/Map';
 import './style.scss';
 
 const Values = () => {
@@ -46,6 +47,7 @@ const Values = () => {
             </div>
           ))}
         </ul>
+        <AddressMap />
       </div>
     </div>
   );
