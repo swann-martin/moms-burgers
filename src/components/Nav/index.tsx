@@ -49,6 +49,7 @@ const Nav = ({
               to="/menu"
               className="nav-right-burger-list-link"
               activeClassName="nav-right-burger-list-link"
+              onClick={toggleMenuStatus}
             >
               La carte
             </NavLink>
@@ -56,12 +57,16 @@ const Nav = ({
               to="/values"
               className="nav-right-burger-list-link"
               activeClassName="nav-right-burger-list-link nav-right-burger-list-link--active"
+              onClick={toggleMenuStatus}
             >
               Nos valeurs
             </NavLink>
             <span
               className="nav-right-burger-list-link nav-cart"
-              onClick={toggleOrderStatus}
+              onClick={() => {
+                toggleMenuStatus();
+                toggleOrderStatus();
+              }}
             >
               Mon panier <i className="fas fa-shopping-cart" />
               <span className="nav-right-burger-list-link-badge">
