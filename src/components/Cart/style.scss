@@ -1,16 +1,29 @@
 @use 'src/styles/vars.scss';
 
+.btn {
+  width: 24px;
+  height: 24px;
+}
+
 .cart {
+  width: 100%;
+  height: 100vh;
+  top: 0px;
+  background-color: rgba($color: vars.$color-primary, $alpha: 0.5);
+  position: fixed;
   // background-color: rgba(#000, 0.4);
   // background-color: darken(vars.$color-2-rgb, 10);
-  background: linear-gradient(0deg, vars.$color-4, vars.$color-2);
-  min-width: 18rem;
-  border-radius: 10px;
+
   // @media screen and (min-width: 900px) {
   //   background-color: darken(vars.$color-2-rgb, 10);
   // }
   section {
     padding: 0.5rem;
+    background: linear-gradient(0deg, vars.$color-4, vars.$color-2);
+    min-width: 18rem;
+    max-width: 20rem;
+    max-height: 50%;
+    border-radius: 10px;
   }
   &-header {
     display: flex;
@@ -20,7 +33,7 @@
   }
 
   &-content {
-    margin: 10px;
+    margin: 2rem 1rem;
     &-list {
       margin: 10px;
       &-element {

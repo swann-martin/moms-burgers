@@ -7,7 +7,7 @@ const Cart = ({
   removeFromCart,
   total = 0,
   toggleOrderStatus,
-  toggleFormStatus,
+  toggleFormStatus
 }: {
   cart: Product[];
   removeFromCart: any;
@@ -15,12 +15,68 @@ const Cart = ({
   toggleOrderStatus: any;
   toggleFormStatus: any;
 }) => {
+  const title = 'Commande en cours :';
+
+  const CloseBtn = () => {
+    return (
+      <span className="closeBtn ">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 40 40"
+          enable-background="new 0 0 40 40"
+        >
+          <line
+            x1="15"
+            y1="15"
+            x2="25"
+            y2="25"
+            stroke="#fff"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-miterlimit="10"
+          ></line>
+          <line
+            x1="25"
+            y1="15"
+            x2="15"
+            y2="25"
+            stroke="#fff"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-miterlimit="10"
+          ></line>
+          <circle
+            className="circle"
+            cx="20"
+            cy="20"
+            r="19"
+            opacity="0"
+            stroke="#000"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-miterlimit="10"
+            fill="none"
+          ></circle>
+          <path
+            d="M20 1c10.45 0 19 8.55 19 19s-8.55 19-19 19-19-8.55-19-19 8.55-19 19-19z"
+            className="progress"
+            stroke="#fff"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-miterlimit="10"
+            fill="none"
+          ></path>
+        </svg>
+      </span>
+    );
+  };
+
   return (
-    <section className="cart">
+    <section className="cart" onClick={toggleOrderStatus}>
       <header className="cart-header">
-        <h2 className="cart-title">Commande en cours : </h2>
-        <span onClick={toggleOrderStatus} className="food-btn">
-          x
+        <h2 className="cart-title">{title}</h2>
+        <span onClick={toggleOrderStatus} className="">
+          <CloseBtn />
         </span>
       </header>
       <div className="cart-content">
@@ -35,7 +91,10 @@ const Cart = ({
                 <span
                   title="retirer du panier"
                   className="food-btn"
-                  onClick={() => removeFromCart(product)}
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    removeFromCart(product);
+                  }}
                 >
                   -
                 </span>
