@@ -25,6 +25,7 @@ const FoodMenu = ({
   handleSideChange?: any;
   side?: string;
 }) => {
+  console.log(products);
   useEffect(() => {}, [cart]);
   return (
     <div className="food">

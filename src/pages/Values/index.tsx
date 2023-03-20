@@ -1,4 +1,5 @@
 import React from 'react';
+import { AddressMap } from '../../components/Map';
 import './style.scss';
 
 const Values = () => {
@@ -36,16 +37,17 @@ const Values = () => {
       <div className="values-main">
         <ul className="values-list">
           {valuesArr.map((value: { title: string; list: string[] }) => (
-            <div>
+            <div key={value.title}>
               <h2 key={value.title} className="values-subtitle">
                 {value.title}
               </h2>
               {value.list.map((el: string) => (
-                <li>{el}</li>
+                <li key={`${value?.title}-${el}`}>{el}</li>
               ))}
             </div>
           ))}
         </ul>
+        <AddressMap />
       </div>
     </div>
   );

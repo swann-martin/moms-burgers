@@ -1,8 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Product } from '../../App';
-import Cart from '../Cart';
 import './style.scss';
+import logo from '../../assets/logoBurger.png';
 
 const Nav = ({
   cart,
@@ -12,7 +12,7 @@ const Nav = ({
   total,
   toggleOrderStatus,
   toggleFormStatus,
-  orderStatus,
+  orderStatus
 }: {
   cart: Product[] | [];
   toggleMenuStatus: any;
@@ -23,12 +23,15 @@ const Nav = ({
   toggleFormStatus: any;
   orderStatus: boolean;
 }) => {
-  const restaurantTitle: string = "Mom's Burgers";
+  const restaurantName = "Mom's Burger";
   return (
     <nav className="nav">
       <div className="nav-left">
         <NavLink to="/">
-          <h1 className="nav-title">{restaurantTitle}</h1>
+          <h1 className="nav-title">
+            <img src={logo} alt="Mom's Burgers" />
+            <span>{restaurantName}</span>
+          </h1>
         </NavLink>
       </div>
 
@@ -49,6 +52,7 @@ const Nav = ({
               to="/menu"
               className="nav-right-burger-list-link"
               activeClassName="nav-right-burger-list-link"
+              onClick={toggleMenuStatus}
             >
               La carte
             </NavLink>
@@ -56,14 +60,18 @@ const Nav = ({
               to="/values"
               className="nav-right-burger-list-link"
               activeClassName="nav-right-burger-list-link nav-right-burger-list-link--active"
+              onClick={toggleMenuStatus}
             >
               Nos valeurs
             </NavLink>
             <span
               className="nav-right-burger-list-link nav-cart"
-              onClick={toggleOrderStatus}
+              onClick={() => {
+                toggleMenuStatus();
+                toggleOrderStatus();
+              }}
             >
-              Mon panier <i className="fas fa-shopping-cart" />
+              <i className="fas fa-shopping-cart" />
               <span className="nav-right-burger-list-link-badge">
                 {cart.length}
               </span>
@@ -90,22 +98,11 @@ const Nav = ({
             className="nav-right-list-link  nav-cart"
             onClick={toggleOrderStatus}
           >
-            Mon panier <i className="fas fa-shopping-cart" />{' '}
+            <i className="fas fa-shopping-cart" />{' '}
             <span className="nav-right-list-link-badge">{cart.length}</span>
           </span>
         </ul>
       </div>
-      {orderStatus && (
-        <div className="cart">
-          <Cart
-            cart={cart}
-            removeFromCart={removeFromCart}
-            total={total}
-            toggleOrderStatus={toggleOrderStatus}
-            toggleFormStatus={toggleFormStatus}
-          />
-        </div>
-      )}
     </nav>
   );
 };
