@@ -4,7 +4,7 @@ import './style.scss';
 
 const Card = ({
   product,
-  addToCart,
+  addToCart
 }: {
   product: Product;
   addToCart: () => {};
@@ -20,7 +20,10 @@ const Card = ({
         <ul className="card-list">
           <li>{price}€</li>
           {ingredients.map((ingredient: string, index: number) => (
-            <li key={`${ingredient}${index}`} className="card-list-ingredient">
+            <li
+              key={`${id}-${ingredient}${index}`}
+              className="card-list-ingredient"
+            >
               {ingredient}
             </li>
           ))}
